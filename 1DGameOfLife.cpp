@@ -101,40 +101,42 @@ int main()
 	int  i ;/**To work as  a counter variable for the loop .*/
 	string s = "" ;/**A temporary string to work on ..*/
 	int count = 0 ;/**This would store the number of solutions .*/
-	//cout << "First enter the number of test cases .\n"
-	//cin >> n;
+	cout << "First enter the number of test cases .\n" ;
+	cin >> n;
 	cout << "Now enter the string or whatever you wanna enter .\n" ;
 	cin >> input ;
-	
-	/**
-	*Now initializing the string 's' to "000..."
-	**/
-	
-	for( i = 0 ; i < input.length() ; i++)
+	for(int j =0 ; j < n ; j ++ )
 	{
-		s = s + "0" ;  	
-	}
-	
-	for( i = 0 ; i < (pow(2,s.length())) ; i++  )
-	{
+		/**
+		*Now initializing the string 's' to "000..."
+		**/
 		
-		if(count == 2)
+		for( i = 0 ; i < input.length() ; i++)
 		{
-			cout << "Multiple solutions ." << endl ;
-			break ;
+			s = s + "0" ;  	
 		}
-		s = Next(s) ;
-		if( ManipulatorCheck(s) )
+		
+		for( i = 0 ; i < (pow(2,s.length())) ; i++  )
 		{
-			count ++ ;
+			
+			if(count == 2)
+			{
+				cout << "Multiple solutions ." << endl ;
+				break ;
+			}
+			s = Next(s) ;
+			if( ManipulatorCheck(s) )
+			{
+				count ++ ;
+			}
+		}
+		if(count == 0)
+		{
+			cout << "No solution ." << endl ;
+		}
+		if(count == 1)
+		{
+			cout << Solution <<endl;
 		}
 	}
-	if(count == 0)
-	{
-		cout << "No solution ." << endl ;
-	}
-	if(count == 1)
-	{
-		cout << Solution <<endl;
-	}	
 }
